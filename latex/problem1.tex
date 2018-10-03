@@ -1,0 +1,354 @@
+This problem is about evaluating a diversity index $D$, which is easier to intuit about than the entropy number. This diversity index is supposed to represent a different hypothetical text $T'$ which shares the same entropy $H$ as the origional text $T$. The text $T'$ has all the words appearing in equal frequency $1/D$, so there is $p_i = 1/D$ for $i = 1, ... ,D$. This means that we set $H$ = $H'$, substituting the $p_i$ from $T$ with $p_i' = 1/D$ in $H'$ from $T'$. Also remembering that the sum of the text is from $i=1$ to $D$.
+
+\paragraph{Simpson Concentration}
+\[
+  S =
+  \sum_{i=1}^{n}
+  p_i^2
+  \addtag
+\]
+
+\[
+  S = S'
+  \addtag
+\]
+
+\[
+  \sum_{i=1}^{n}
+  p_i^2
+  =
+  \sum_{i=1}^{D}
+  (1/D)^2
+  \addtag
+\]
+
+\[
+  \sum_{i=1}^{n}
+  p_i^2
+  =
+  \sum_{i=1}^{D}
+  (1/D)^2
+  \addtag
+\]
+
+\[
+  \sum_{i=1}^{n}
+  p_i^2
+  =
+  D
+  (1/D)^2
+  \addtag
+\]
+
+\[
+  \sum_{i=1}^{n}
+  p_i^2
+  =
+  (1/D)
+  \addtag
+\]
+
+\[
+  D =
+  \left(
+    \sum_{i=1}^{n}
+    p_i^2
+  \right)^{-1}
+  \addtag
+  =
+  S^{-1}
+\]
+
+\paragraph{Gini Index}
+\[
+  G \equiv
+  1 - S
+  =
+  1 -
+  \sum_{i=1}^{n}
+  p_i^2
+  \addtag
+\]
+
+\[
+  G = G'
+  \addtag
+\]
+
+\[
+  1 -
+  \sum_{i=1}^{n}
+  p_i^2
+  = 
+  1 -
+  \sum_{i=1}^{n}
+  (1/D)^2
+  \addtag
+\]
+
+\[
+  \sum_{i=1}^{n}
+  p_i^2
+  =
+  \sum_{i=1}^{D}
+  (1/D)^2
+  \addtag
+\]
+
+\[
+  \sum_{i=1}^{n}
+  p_i^2
+  =
+  D
+  (1/D)^2
+  \addtag
+\]
+
+\[
+  \sum_{i=1}^{n}
+  p_i^2
+  =
+  (1/D)
+  \addtag
+\]
+
+\[
+  D =
+  \left(
+    \sum_{i=1}^{n}
+    p_i^2
+  \right)^{-1}
+  \addtag
+  =
+  S^{-1}
+\]
+
+The diversity index for the Simpson Concentration and the Gini Index come out to be the same!
+The diversity index for the Gini Index can even be written in terms of the Simpson Concentration.
+
+\paragraph{Shannon's Entropy}
+\[
+  H =
+  - \sum_{i=1}^{n}
+  p_i
+  \ln p_i
+  \addtag
+\]
+
+\[
+  H = H'
+  \addtag
+\]
+
+\[
+  H
+  =
+  - \sum_{i=1}^{D}
+  (1/D)
+  \ln (1/D)
+  \addtag
+\]
+
+\[
+  H
+  =
+  - D
+  (1/D)
+  \ln (1/D)
+  \addtag
+\]
+
+\[
+  H
+  =
+  - \ln (1/D)
+  =
+  \ln D
+  \addtag
+\]
+
+\[
+  D
+  = 
+  e^H
+  =
+  e^{
+    - \sum_{i=1}^{n}
+    p_i
+    \ln p_i
+  }
+  \addtag
+\]
+
+\paragraph{Renya Entropy, $q \neq 1$}
+\[
+  H_q^{(R)} =
+  \frac{1}{q - 1}
+  \left(
+    - \ln
+    \sum_{i=1}^{n}
+      p_i^q
+  \right)
+  \addtag
+\]
+
+\[
+  H_q^{(R)} = (H_q^{(R)})'
+\]
+
+\[
+  \frac{1}{q - 1}
+  \left(
+    - \ln
+    \sum_{i=1}^{n}
+      p_i^q
+  \right)
+  =
+  \frac{1}{q - 1}
+  \left(
+    - \ln
+    \sum_{i=1}^{D}
+      (1/D)^q
+  \right)
+  \addtag
+\]
+
+\[
+  - \ln
+  \sum_{i=1}^{n}
+    p_i^q
+  =
+  - \ln
+  \sum_{i=1}^{D}
+    (1/D)^q
+  \addtag
+\]
+
+\[
+  \sum_{i=1}^{n}
+    p_i^q
+  =
+  \sum_{i=1}^{D}
+    (1/D)^q
+  \addtag
+\]
+
+\[
+  \sum_{i=1}^{n}
+    p_i^q
+  =
+  D
+  (D)^{-q}
+  \addtag
+\]
+
+\[
+  \sum_{i=1}^{n}
+    p_i^q
+  =
+  D^{q + 1}
+  \addtag
+\]
+
+\[
+  D =
+  \left(
+  \sum_{i=1}^{n}
+    p_i^q
+  \right)^{
+    \frac{1}{q + 1}
+  }
+  \addtag
+\]
+
+\paragraph{Generalized Tsallis Entropy, $q \neq 1$}
+\[
+  H_q^{(T)} =
+  \frac{1}{q - 1}
+  \left(
+    1 -
+    \sum_{i=1}^{n}
+      p_i^q
+  \right)
+  \addtag
+\]
+
+\[
+  H_q^{(T)} = (H_q^{(T)})'
+\]
+
+\[
+  \frac{1}{q - 1}
+  \left(
+    1 -
+    \sum_{i=1}^{n}
+      p_i^q
+  \right)
+  =
+  \frac{1}{q - 1}
+  \left(
+    1 -
+    \sum_{i=1}^{D}
+      (1/D)^q
+  \right)
+  \addtag
+\]
+
+\[
+  1 -
+  \sum_{i=1}^{n}
+    p_i^q
+  =
+  1 -
+  \sum_{i=1}^{D}
+    (1/D)^q
+  \addtag
+\]
+
+\[
+  \sum_{i=1}^{n}
+    p_i^q
+  =
+  \sum_{i=1}^{D}
+    (1/D)^q
+  \addtag
+\]
+
+\[
+  \sum_{i=1}^{n}
+    p_i^q
+  =
+  \sum_{i=1}^{D}
+    (1/D)^q
+  \addtag
+\]
+
+\[
+  \sum_{i=1}^{n}
+    p_i^q
+  =
+  D
+  (D)^{-q}
+  \addtag
+\]
+
+\[
+  \sum_{i=1}^{n}
+    p_i^q
+  =
+  D^{q + 1}
+  \addtag
+\]
+
+\[
+  D =
+  \left(
+  \sum_{i=1}^{n}
+    p_i^q
+  \right)^{
+    \frac{1}{q + 1}
+  }
+  \addtag
+\]
+
+We see that the Generalized Tallis Entropy and the Renya Entropy come out to be the same!
