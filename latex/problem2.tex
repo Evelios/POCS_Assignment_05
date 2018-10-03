@@ -1,0 +1,60 @@
+Mandelbrotian derivation of Zipf's law by minimizing the function
+\[
+  \Psi(p_1, p_2, ..., p_n)
+  =
+  F(p_1, p_2, ..., p_n)
+  +
+  \lambda G(p_1, p_2, ..., p_n)
+  \addtag
+\]
+
+The cost of information is,
+\[
+  F(p_1, p_2, ..., p_n)
+  =
+  \frac{C}{H}
+  =
+  \frac{
+    \sum_{i=1}^{n}
+      p_i
+      ln(i + a)
+  }{
+    -g
+    \sum_{i=1}^{n}
+      p_i \ln p_i
+  }
+  \addtag
+\]
+
+to find
+\[
+  p_j
+  =
+  e^{
+    -1 - 
+    \lambda H^2 / gC
+  }
+  (j + a)^{
+    -H / gC
+  }
+  \addtag
+\]
+
+Then use the equation
+\[
+  \sum_{j=1}^{n}
+    p_j
+  = 1
+  \addtag
+\]
+
+To find
+\[
+  \alpha = H / gC
+  \addtag
+\]
+
+\[
+  p_j = (j + a)^\alpha
+  \addtag
+\]
