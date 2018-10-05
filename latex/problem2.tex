@@ -8,7 +8,7 @@ Mandelbrotian derivation of Zipf's law by minimizing the function
   \addtag
 \]
 
-The cost of information is,
+The `cost over information` is,
 \[
   F(p_1, p_2, ..., p_n)
   =
@@ -26,7 +26,165 @@ The cost of information is,
   \addtag
 \]
 
-to find
+The constrain equation is,
+\[
+  G(p_1, p_2, ..., p_n) =
+  \sum_{i=1}^{n}
+    p_i - 1
+  \, \, \, (= 0)
+  \addtag
+\]
+
+Minimizing the cost over information...
+\[
+  \nabla F(p_1, p_2, ..., p_n)
+  =
+  \nabla
+  \frac{
+    \sum_{i=1}^{n}
+      p_i
+      ln(i + a)
+  }{
+    -g
+    \sum_{i=1}^{n}
+      p_i \ln p_i
+  }
+  \addtag
+\]
+
+We can look at the gradient component wise, because when taking the partial derivative of the summation, all other terms other then the $i = j$ terms cancel out for that particular vector entry.
+\[
+  \frac{\partial F}{\partial p_j}
+  =
+  \frac{\partial}{\partial p_j}
+  \frac{
+      p_j
+      ln(i + a)
+  }{
+    -g
+     (p_j \ ln p_j)
+  }
+  \addtag
+\]
+
+\[
+  =
+  \frac{\partial}{\partial p_j}
+  \frac{ln(i + a)}{-g}
+  \frac{
+      p_j
+  }{
+     (p_j \ ln p_j)
+  }
+  \addtag
+\]
+
+\[
+  =
+  \frac{\partial}{\partial p_j}
+  \left(
+    \frac{ln(i + a)}{-g}
+  \right)
+  \left(
+    \frac{1}{ln p_j}
+  \right)
+  \addtag
+\]
+
+\[
+  =
+  \left(
+    \frac{ln(i + a)}{-g}
+  \right)
+  \left(
+    \frac{
+      1
+    }{
+      p_j(ln p_j)^2
+    }
+  \right)
+  \addtag
+\]
+
+Solving for the gradient of the constrain function...
+\[
+  \nabla G(p_1, p_2, ..., p_n) =
+  \nabla
+  \sum_{i=1}^{n}
+    p_i - 1
+  \addtag
+\]
+
+\[
+  \frac{\partial G}{\partial p_j}
+  =
+  \frac{\partial}{\partial p_j}
+  (p_i - 1)
+  \addtag
+\]
+
+\[
+  \frac{\partial G}{\partial p_j}
+  =
+  1
+  \addtag
+\]
+
+Solving for the critical point,
+\[
+  \frac{\partial \Psi}{\partial p_j}
+  =
+  \frac{\partial F}{\partial p_j}
+  +
+  \lambda
+  \frac{\partial G}{\partial p_j}
+  =
+  0
+  \addtag
+\]
+
+\[
+  0
+  =
+  \left(
+    \frac{ln(i + a)}{-g}
+  \right)
+  \left(
+    \frac{
+      1
+    }{
+      p_j(ln p_j)^2
+    }
+  \right)
+  +
+  \lambda
+  \addtag
+\]
+
+\[
+  \left(
+    \frac{ln(i + a)}{-g}
+  \right)
+  \left(
+    \frac{
+      1
+    }{
+      p_j(ln p_j)^2
+    }
+  \right)
+  =
+  \lambda
+  \addtag
+\]
+
+\[
+  \frac{ln(i + a)}{-g \lambda}
+  =
+  p_j(ln p_j)^2
+  \addtag
+\]
+
+I should have reached the following equation, so working on from here.
 \[
   p_j
   =
@@ -40,15 +198,54 @@ to find
   \addtag
 \]
 
-Then use the equation
+Using the constrain equation,
 \[
   \sum_{j=1}^{n}
     p_j
-  = 1
+  =
+  \sum_{j=1}^{n}
+    e^{
+      -1 - 
+      \lambda H^2 / gC
+    }
+    (j + a)^{
+      -H / gC
+    }
+  =
+  1
   \addtag
 \]
 
-To find
+\[
+  \left(
+    e^{
+      -1 - 
+      \lambda H^2 / gC
+    }
+  \right)
+  \sum_{j=1}^{n}
+  (j + a)^{
+    -H / gC
+  }
+  =
+  1
+  \addtag
+\]
+
+\[
+  \sum_{j=1}^{n}
+  (j + a)^{
+    -H / gC
+  }
+  =
+  e^{
+    1 + 
+    \lambda H^2 / gC
+  }
+  \addtag
+\]
+
+Expected Output
 \[
   \alpha = H / gC
   \addtag

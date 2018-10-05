@@ -352,3 +352,55 @@ The diversity index for the Gini Index can even be written in terms of the Simps
 \]
 
 We see that the Generalized Tallis Entropy and the Renya Entropy come out to be the same!
+
+\paragraph{Matching the Tallis Diversity as $q \to 1$ to Shannon Diversity}
+
+\[
+  D_H
+  = 
+  e^H
+  =
+  e^{
+    - \sum_{i=1}^{n}
+    p_i
+    \ln p_i
+  }
+  \addtag
+\]
+
+\[
+  D_T =
+  \left(
+  \sum_{i=1}^{n}
+    p_i^q
+  \right)^{
+    \frac{1}{q + 1}
+  }
+  \addtag
+\]
+
+\[
+  \lim_{q \to 1} D_T =
+  \lim_{q \to 1}
+  \left(
+  \sum_{i=1}^{n}
+    p_i^q
+  \right)^{
+    \frac{1}{q + 1}
+  }
+  \addtag
+\]
+
+\[
+  \lim_{q \to 1} D_T =
+  =
+  \left(
+  \sum_{i=1}^{n}
+    p_i
+  \right)^{
+    1/2
+  }
+  \addtag
+\]
+
+Hmmm, doesn't seem quite right
