@@ -56,7 +56,6 @@ lm(log10_nk ~ log10_k, restricted_vocab_freqs)
 
 # ---- Problem 8 ---------------------------------------------------------------
 
-
-
 mean(vocab_freqs$nk)
 sd(vocab_freqs$nk)
+var(vocab_freqs$nk)
