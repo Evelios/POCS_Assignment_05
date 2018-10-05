@@ -255,3 +255,138 @@ Expected Output
   p_j = (j + a)^\alpha
   \addtag
 \]
+
+Solving for $\lambda$. I am using the equations for $p_j$, $H$, and $C$ below,
+
+\[
+  C
+  =
+  \sum_{j=1}^{n}
+    p_i
+    ln(j + a)
+  \addtag
+\]
+
+\[
+  H
+  =
+  -g
+  \sum_{j=1}^{n}
+    p_j \ln p_j
+  \addtag
+\]
+
+\[
+  p_j
+  =
+  e^{
+    -1 - 
+    \lambda H^2 / gC
+  }
+  (j + a)^{
+    -H / gC
+  }
+  \addtag
+\]
+
+\[
+  ln \, p_j
+  =
+  ( 
+    -1 - 
+    \lambda H^2 / gC
+  )
+  (
+    -H / gC
+  ) 
+  ln
+  (j + a)
+  \addtag
+\]
+
+The rest follows by starting with the equation for $H$
+\[
+  H
+  =
+  -g
+  \sum_{j=1}^{n}
+    p_j \ln p_j
+  \addtag
+\]
+
+\[
+  H
+  =
+  -g
+  \sum_{j=1}^{n}
+    p_j 
+  ( 
+    -1 - 
+    \lambda H^2 / gC
+  )
+  (
+    -H / gC
+  ) 
+  ln
+  (j + a)
+  \addtag
+\]
+
+\[
+  H
+  =
+  -g
+  ( 
+    -1 - 
+    \lambda H^2 / gC
+  )
+  (
+    -H / gC
+  )
+  \sum_{j=1}^{n}
+    p_i 
+  ln(j + a)
+  \addtag
+\]
+
+\[
+  H
+  =
+  -g
+  ( 
+    1 + 
+    \lambda H^2 / gC
+  )
+  (
+    H / gC
+  )
+  (C)
+  \addtag
+\]
+
+\[
+  1
+  =
+  -(1 + 
+  \lambda H^2 / gC
+  )
+  \addtag
+\]
+
+\[
+  \lambda H^2 / gC
+  =
+  -2
+  \addtag
+\]
+
+\[
+  \lambda 
+  =
+  \frac{
+    -2gC
+  }{
+    H^2
+  }
+  \addtag
+\]
